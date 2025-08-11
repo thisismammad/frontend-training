@@ -5,6 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Profile</title>
 		<link rel="stylesheet" href="style/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+			integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 	</head>
 	<body>
 		<header>
@@ -15,6 +22,9 @@
 					<li class="nav-item"><a href="#">About</a></li>
 					<li class="nav-item"><a href="#">Project</a></li>
 					<li class="nav-item"><a href="#">Contact</a></li>
+					<li class="nav-item">
+						<a href="#"><i class="fa-solid fa-moon"></i></a>
+					</li>
 				</ul>
 			</nav>
 			<section>
@@ -24,28 +34,99 @@
 		</header>
 		<main>
 			<aside>
-				<section class="profile">
-					<img src="images/profile.jpg" alt="profile" />
-					<p>Mammad Davari</p>
-				</section>
-				<section class="description">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quos
-					tenetur odio optio, ex repellendus eligendi magni quisquam veritatis
-					aliquid cupiditate aut quasi saepe quaerat.
-				</section>
-				<section class="links">
-					<a href="https://x.com">X</a>
-					<a href="https://www.linkedin.com/">LinkedIn</a>
-					<a href="https://github.com/">Github</a>
-				</section>
+				<div class="profile">
+					<section class="profile-pic">
+						<img src="images/profile.jpg" alt="profile" />
+						<p>Mammad Davari</p>
+					</section>
+					<section class="description">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quos
+						tenetur odio optio, ex repellendus eligendi magni quisquam veritatis
+						aliquid cupiditate aut quasi saepe quaerat.
+					</section>
+					<section class="links">
+						<a href="https://x.com">X</a>
+						<a href="https://www.linkedin.com/">LinkedIn</a>
+						<a href="https://github.com/">Github</a>
+					</section>
+				</div>
+				<p>Skills</p>
+				<div class="skills">
+					<div class="skill">
+						<div class="skill-name">
+							<span>HTML</span>
+							<span>90%</span>
+						</div>
+						<div class="skill-progress">
+							<progress id="html" value="90" max="100"></progress>
+						</div>
+					</div>
+					<div class="skill">
+						<div class="skill-name">
+							<span>CSS</span>
+							<span>80%</span>
+						</div>
+						<div class="skill-progress">
+							<progress id="css" value="80" max="100"></progress>
+						</div>
+					</div>
+					<div class="skill">
+						<div class="skill-name">
+							<span>JavaScript</span>
+							<span>75%</span>
+						</div>
+						<div class="skill-progress">
+							<progress id="js" value="75" max="100"></progress>
+						</div>
+					</div>
+					<div class="skill">
+						<div class="skill-name">
+							<span>svelte</span>
+							<span>85%</span>
+						</div>
+						<div class="skill-progress">
+							<progress id="html" value="85" max="100"></progress>
+						</div>
+					</div>
+				</div>
 			</aside>
 			<section class="content">
-				<img src="images/post (1).jpg" alt="post 1" />
-				<img src="images/post (2).jpg" alt="post 2" />
-				<img src="images/post (3).jpg" alt="post 3" />
-				<img src="images/post (4).jpg" alt="post 4" />
-				<img src="images/post (5).jpg" alt="post 5" />
-				<img src="images/post (6).jpg" alt="post 6" />
+				<div class="card">
+					<img src="images/post (1).jpg" alt="post 1" />
+					<h4>Project 1</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+						quod beatae sunt odit sint repudiandae atque non reiciendis soluta
+						culpa?
+					</p>
+				</div>
+				<div class="card">
+					<img src="images/post (2).jpg" alt="post 1" />
+					<h4>Project 2</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+						quod beatae sunt odit sint repudiandae atque non reiciendis soluta
+						culpa?
+					</p>
+				</div>
+				<div class="card">
+					<img src="images/post (3).jpg" alt="post 1" />
+					<h4>Project 3</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+						quod beatae sunt odit sint repudiandae atque non reiciendis soluta
+						culpa?
+					</p>
+				</div>
+				<div class="card">
+					<img src="images/post (4).jpg" alt="post 1" />
+					<h4>Project 4</h4>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+						quod beatae sunt odit sint repudiandae atque non reiciendis soluta
+						culpa?
+					</p>
+				</div>
 			</section>
 		</main>
 		<footer>
