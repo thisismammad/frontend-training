@@ -12,6 +12,7 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header>
@@ -33,7 +34,7 @@
 			</section>
 		</header>
 		<main>
-			<aside>
+			<aside data-aos="fade-up">
 				<div class="profile">
 					<section class="profile-pic">
 						<img src="images/profile.jpg" alt="profile" />
@@ -51,7 +52,7 @@
 					</section>
 				</div>
 				<p>Skills</p>
-				<div class="skills">
+				<div class="skills" data-aos="fade-up">
 					<div class="skill">
 						<div class="skill-name">
 							<span>HTML</span>
@@ -90,7 +91,7 @@
 					</div>
 				</div>
 			</aside>
-			<section class="content">
+			<section class="content" data-aos="fade-up">
 				<div class="card">
 					<div class="card-image-wrapper">
 						<img src="images/post (1).jpg" alt="post 1" />
@@ -140,6 +141,10 @@
 		<footer>
 			<p>&copy; 2025 Mammad Davari</p>
 		</footer>
-    <script src="./js/script.js"></script>
+		<script src="./js/script.js"></script>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script>
+			AOS.init();
+		</script>
 	</body>
 </html>
