@@ -361,8 +361,13 @@ footer p {
 	}
 
 	.menu-btn {
-		display: block;
+		display: flex;
+    align-items: center;
+    justify-content: center;
 	}
+  .menu-btn i{
+    color: #fff;
+  }
 	.logo {
 		margin: 0;
 	}
