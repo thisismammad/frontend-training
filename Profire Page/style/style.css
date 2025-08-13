@@ -167,7 +167,6 @@ main {
 }
 .quotes {
 	display: flex;
-	max-height: 400px;
 	overflow: auto;
 }
 .quote {
