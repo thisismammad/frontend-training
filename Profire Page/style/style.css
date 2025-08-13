@@ -147,8 +147,8 @@ main {
 }
 
 .main-right {
-  flex: 4;
-  width: 50%;
+	flex: 4;
+	width: 50%;
 }
 .main-left {
 	flex: 2;
@@ -166,9 +166,9 @@ main {
 	background-color: var(--primary-white);
 }
 .quotes {
-  display: flex;
+	display: flex;
 	max-height: 400px;
-  overflow: auto;
+	overflow: auto;
 }
 .quote {
 	padding: 16px;
@@ -424,7 +424,7 @@ footer p {
 		overflow: auto;
 	}
 	.main-right {
-		flex:3;
+		flex: 3;
 	}
 	.main-left {
 		flex: 2;
