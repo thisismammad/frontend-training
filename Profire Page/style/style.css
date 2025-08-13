@@ -130,6 +130,7 @@ main {
 	margin-top: 40px;
 	display: flex;
 	gap: 40px;
+	width: 100%;
 }
 .main-item {
 	margin-top: 32px;
@@ -145,6 +146,13 @@ main {
 	gap: 34px;
 }
 
+.main-right {
+	flex: 4;
+}
+.main-left {
+	flex: 2;
+}
+
 .profile,
 .skills,
 .timeline,
@@ -152,23 +160,22 @@ main {
 .quotes {
 	border-radius: var(--big-radius);
 	padding: 32px;
-	width: 100%;
+	/* width: 100%; */
 	margin-top: 14px;
 	background-color: var(--primary-white);
 }
 .quotes {
-	display: flex;
-	max-width: 810px;
-	overflow-x: auto;
+	max-height: 400px;
+  overflow: auto;
 }
 .quote {
-	/* margin-top: 24px; */
 	padding: 16px;
 	border-radius: var(--small-radius);
 	min-width: 300px;
 	display: flex;
 	flex-direction: column;
 }
+
 .quote:hover {
 	background-color: var(--light-gray);
 }
@@ -362,12 +369,12 @@ footer p {
 
 	.menu-btn {
 		display: flex;
-    align-items: center;
-    justify-content: center;
+		align-items: center;
+		justify-content: center;
 	}
-  .menu-btn i{
-    color: #fff;
-  }
+	.menu-btn i {
+		color: #fff;
+	}
 	.logo {
 		margin: 0;
 	}
@@ -414,10 +421,13 @@ footer p {
 		max-height: 900px;
 		overflow: auto;
 	}
+	.main-right {
+		flex:3;
+	}
+	.main-left {
+		flex: 2;
+	}
 }
-@media screen and (max-width: 50px) {
-}
-
 @media screen and (max-width: 320px) {
 	.follow p {
 		font-size: 1.3rem;
