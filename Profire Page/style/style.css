@@ -397,6 +397,9 @@ footer p {
 	main {
 		flex-direction: column;
 	}
+  .main-right{
+    width: 100%;
+  }
 
 	.content {
 		grid-template-columns: 1fr;
