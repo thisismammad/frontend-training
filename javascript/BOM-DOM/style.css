@@ -11,7 +11,7 @@ html {
   border: none;
 }
 body {
-  width: 50%;
+  max-width: 600px;
   margin: 0 auto;
   height: 100vh;
   display: flex;

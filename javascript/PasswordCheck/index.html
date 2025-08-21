@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Password Check</title>
+  </head>
+  <body>
+    <main class="mt-48">
+      <section
+        class="flex flex-col w-[400px] mx-auto items-center rounded-xl p-8 shadow-md shadow-slate-200"
+      >
+        <input type="password" name="" id="pass" placeholder="Password" />
+        <input
+          type="password"
+          name=""
+          id="confirm"
+          placeholder="Confirm Password"
+        />
+        <div class="mt-4 w-full">
+          <ul class="list-disc">
+            <li id="len">At least 8 characters</li>
+            <li id="case">Use uppercase and lowercase letters</li>
+            <li id="number">Use numbers</li>
+            <li id="char">Using special characters</li>
+            <li id="match">Password matching and repetition</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
