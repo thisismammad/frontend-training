@@ -21,14 +21,7 @@ const mainTitle = $.querySelector("#main-title");
 const btn = $.querySelector("input[type=button]");
 
 btn.addEventListener("click", () => {
-  const inter = setInterval(() => {
-    if (list.children.length>0) {
-      console.log("R");
-      list.removeChild(list.lastChild);
-      console.log(list.children);
-      console.log(list.children.length);
-    } else {
-      clearInterval(inter);
-    }
-  }, 1000);
+  if (list.children.length > 0) {
+    list.removeChild(list.lastElementChild);
+  }
 });
