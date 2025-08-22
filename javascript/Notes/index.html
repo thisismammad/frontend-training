@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="max-w-5xl mx-auto border-gray-200 h-dvh dark:bg-gray-900">
+    <!-- header section-->
+    <header
+      class="flex items-center gap-2 px-4 py-2 h-13 border-b border-gray-200 dark:border-gray-700"
+    >
+      <!-- header left -->
+      <div class="flex items-center flex-1 gap-2">
+        <i class="fa-solid fa-bars"></i>
+        <span class="text-lg font-semibold">Note</span>
+      </div>
+
+      <!-- header middle -->
+      <div
+        class="flex items-center dark:bg-gray-700 flex-2 px-4 py-1 bg-gray-200 gap-2 rounded-md"
+      >
+        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="search"
+          class="w-full focus:outline-none"
+        />
+      </div>
+
+      <!-- header right -->
+      <div class="flex items-center flex-1 justify-center gap-4">
+        <i class="fa-solid fa-rotate-right"></i>
+        <div class="">
+          <img
+            src="./assets/images/Profile.jpg"
+            alt="Profile"
+            class="w-full rounded-full h-9 border-1 border-gray-900 dark:border-gray-300"
+          />
+        </div>
+      </div>
+    </header>
+    <!--end header section-->
+    <!-- side menu -->
+    <menu
+      class="w-13 bg-white dark:bg-gray-900 absolute overflow-hidden h-dvh shadow-[1px_0px_2px_rgba(0,0,0,0.1)] py-2"
+    >
+      <ul>
+        <li class="menu-item">
+          <div class="w-10">
+            <i class="fa-solid fa-note-sticky"></i>
+          </div>
+          <span>Notes</span>
+        </li>
+        <li class="menu-item">
+          <div class="w-10">
+            <i class="fa-solid fa-moon"></i>
+          </div>
+          <span>Theme</span>
+        </li>
+        <li class="menu-item">
+          <div class="w-10">
+            <i class="fa-solid fa-trash"></i>
+          </div>
+          <span>Trash</span>
+        </li>
+      </ul>
+      <p class="absolute w-60 hidden bottom-4 left-4 text-sm">
+        &copy; Thisismammad Davari
+      </p>
+    </menu>
+    <!-- end side menu -->
+
+    <!-- main section -->
+    <main class="ml-15 mr-2 mt-2">
+      <!-- add note section -->
+      <section
+        class="max-w-2xl mx-auto flex flex-col items-center p-4 rounded-md shadow-md shadow-gray-300 dark:shadow-gray-800"
+      >
+        <!-- add note section -->
+        <section class="overflow-hidden w-full h-6">
+          <textarea
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title"
+            class="focus:outline-none hidden w-full font-bold field-sizing-content resize-none"
+          ></textarea>
+          <textarea
+            type="text"
+            name="note"
+            id="note"
+            placeholder="take a note..."
+            class="focus:outline-none flex flex-wrap w-full field-sizing-content resize-none"
+          ></textarea>
+          <div class="flex items-center justify-between mt-4 max-w-52 mx-auto">
+            <div class="flex gap-2">
+              <span class="color-plate bg-red-500"></span>
+              <span class="color-plate bg-blue-500"></span>
+              <span class="color-plate bg-yellow-500"></span>
+              <span class="color-plate bg-green-500"></span>
+            </div>
+            <input
+              type="button"
+              value="Add note"
+              class="py-1 px-3 rounded-2xl bg-teal-500"
+            />
+          </div>
+        </section>
+        <!-- notes list section -->
+        <section></section>
+      </section>
+      <!-- end add note section -->
+
+      <!-- notes section -->
+      <section class="mt-8">
+        <p class="font-medium text-gray-300">Notes</p>
+        <ul
+          class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mb-4"
+        >
+          <li class="note bg-red-400">
+            <h3 class="note-title">Title</h3>
+            <p class="note-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+              consequuntur facilis dolores labore ipsam necessitatibus
+              assumenda. At cumque facilis dolorum, totam eaque ex id, quae,
+              ratione eum eligendi quia numquam?
+            </p>
+          </li>
+          <li class="note bg-yellow-400">
+            <h3 class="note-title">Title</h3>
+            <p class="note-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+              consequuntur facilis dolores labore ipsam necessitatibus
+              assumenda. At cumque facilis dolorum, totam eaque ex id, quae,
+              ratione eum eligendi quia numquam?
+            </p>
+          </li>
+          <li class="note bg-blue-400">
+            <h3 class="note-title">Title</h3>
+            <p class="note-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+              consequuntur facilis dolores labore ipsam necessitatibus
+              assumenda. At cumque facilis dolorum, totam eaque ex id, quae,
+              ratione eum eligendi quia numquam?
+            </p>
+          </li>
+        </ul>
+      </section>
+      <!-- end notes section -->
+    </main>
+    <!-- end main section -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
