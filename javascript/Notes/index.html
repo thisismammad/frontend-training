@@ -45,7 +45,7 @@
           <img
             src="./assets/images/Profile.jpg"
             alt="Profile"
-            class="w-full rounded-full h-9 border-1 border-gray-900 dark:border-gray-300"
+            class="w-full rounded-full max-h-9 border-1 border-gray-900 dark:border-gray-300"
           />
         </div>
       </div>
@@ -125,37 +125,60 @@
       <!-- notes section -->
       <section class="mt-8">
         <p class="font-medium text-gray-300">Notes</p>
-        <ul
-          class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mb-4"
+        <section
+          class="mt-4 flex flex-wrap gap-2 mb-4"
         >
-          <li class="note bg-red-400">
-            <h3 class="note-title">Title</h3>
-            <p class="note-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              consequuntur facilis dolores labore ipsam necessitatibus
-              assumenda. At cumque facilis dolorum, totam eaque ex id, quae,
-              ratione eum eligendi quia numquam?
-            </p>
-          </li>
-          <li class="note bg-yellow-400">
-            <h3 class="note-title">Title</h3>
-            <p class="note-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              consequuntur facilis dolores labore ipsam necessitatibus
-              assumenda. At cumque facilis dolorum, totam eaque ex id, quae,
-              ratione eum eligendi quia numquam?
-            </p>
-          </li>
-          <li class="note bg-blue-400">
-            <h3 class="note-title">Title</h3>
-            <p class="note-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              consequuntur facilis dolores labore ipsam necessitatibus
-              assumenda. At cumque facilis dolorum, totam eaque ex id, quae,
-              ratione eum eligendi quia numquam?
-            </p>
-          </li>
-        </ul>
+          <!-- column 1 -->
+          <div class="note-column">
+            <div class="note bg-red-400">
+              <h3 class="note-title">Title</h3>
+              <p class="note-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                consequuntur facilis dolores labore ipsam necessitatibus
+                assumenda. At cumque facilis
+              </p>
+            </div>
+            <div class="note bg-blue-400">
+              <h3 class="note-title">Title</h3>
+              <p class="note-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                consequuntur facilis 
+              </p>
+            </div>
+            <div class="note bg-blue-400">
+              <h3 class="note-title">Title</h3>
+              <p class="note-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                consequuntur facilis dolores labore ipsam necessitatibus
+                assumenda. At cumque facilis
+              </p>
+            </div>
+          </div>
+          <!-- column 2 -->
+          <div class="note-column">
+            <div class="note bg-blue-400">
+              <h3 class="note-title">Title</h3>
+              <p class="note-text">Lorem ipsum</p>
+            </div>
+            <div class="note bg-green-400">
+              <h3 class="note-title">Title</h3>
+              <p class="note-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                consequuntur facilis
+              </p>
+            </div>
+          </div>
+          <!-- column 3 -->
+          <div class="note-column">
+            <div class="note bg-green-400">
+              <h3 class="note-title">Title</h3>
+              <p class="note-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                consequuntur facilis
+              </p>
+            </div>
+          </div>
+        </section>
       </section>
       <!-- end notes section -->
     </main>
