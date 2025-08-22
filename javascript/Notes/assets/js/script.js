@@ -17,6 +17,12 @@ menuBtn.addEventListener("click", (e) => {
   menu.classList.toggle("w-52!");
   copy.classList.toggle("hidden");
 });
+$.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && e.target !== menuBtn) {
+    menu.classList.toggle("w-52!");
+    copy.classList.toggle("hidden");
+  }
+});
 
 // reload btn
 const reload = $.querySelector("#reload");
@@ -27,13 +33,17 @@ const inputTxt = $.querySelector("#input-txt");
 const inputTitle = $.querySelector("#input-title");
 const inputTxtSec = $.querySelector("#input-txt-sec");
 inputTxt.addEventListener("focus", () => {
-  inputTxtSec.classList.remove("h-6");
+  inputTxtSec.classList.remove("close-input");
+  inputTxtSec.classList.add("open-input");
   inputTitle.classList.remove("hidden");
 });
 $.addEventListener("click", (e) => {
   if (!inputTxtSec.contains(e.target)) {
-    inputTxtSec.classList.add("h-6");
-    inputTitle.classList.add("hidden");
+    inputTxtSec.classList.remove("open-input");
+    inputTxtSec.classList.add("close-input");
+    setTimeout(() => {
+      inputTitle.classList.add("hidden");
+    }, 500);
   }
 });
 
@@ -85,7 +95,7 @@ function loadNotes(list) {
   }
   list.forEach((note) => {
     const newNoteDiv = $.createElement("DIV");
-    newNoteDiv.classList.add("note");
+    newNoteDiv.classList.add("note", "cursor-pointer", "close-note");
 
     if (note.color) {
       note.color.forEach((colorItem) => {
@@ -108,6 +118,21 @@ window.addEventListener("load", () => {
   let noteList = [];
   noteList = JSON.parse(localStorage.getItem("noteList")) || [];
   loadNotes(noteList);
+
+  // open note
+  const notes = $.querySelectorAll(".note");
+  notes.forEach((note) => {
+    note.addEventListener("click", (e) => {
+      note.classList.remove("close-note");
+      note.classList.add("open-note");
+    });
+    $.addEventListener("click", (e) => {
+      if (!note.contains(e.target)) {
+        note.classList.remove("open-note");
+        note.classList.add("close-note");
+      }
+    });
+  });
 });
 
 // search function
@@ -149,7 +174,7 @@ menuItems.forEach((item) => {
         item.classList.add("active");
       }
       if (item.id === "notes") {
-          isDeleted = false
+        isDeleted = false;
         loadNotes(noteList);
       } else if (item.id === "trash") {
         isDeleted = true;
