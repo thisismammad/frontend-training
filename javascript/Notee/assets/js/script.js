@@ -22,8 +22,8 @@ menuBtn.addEventListener("click", (e) => {
 });
 $.addEventListener("click", (e) => {
   if (!menu.contains(e.target) && e.target !== menuBtn) {
-    menu.classList.toggle("w-52!");
-    copy.classList.toggle("hidden");
+    menu.classList.remove("w-52!");
+    copy.classList.add("hidden");
   }
 });
 
