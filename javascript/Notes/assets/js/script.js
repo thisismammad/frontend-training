@@ -1,5 +1,8 @@
 const $ = document;
 let isDeleted = false;
+let notes;
+let deleteBtns;
+
 // dark mode toggle
 const html = $.documentElement;
 const darkToggle = $.querySelector("#dark-toggle");
@@ -43,7 +46,7 @@ $.addEventListener("click", (e) => {
     inputTxtSec.classList.add("close-input");
     setTimeout(() => {
       inputTitle.classList.add("hidden");
-    }, 500);
+    }, 450);
   }
 });
 
@@ -76,13 +79,14 @@ function addNewNote(list) {
   if (inputTxt.value || inputTitle.value) {
     list = JSON.parse(localStorage.getItem("noteList")) || [];
     const newNote = {};
+    newNote.id = list[list.length - 1] ? list[list.length - 1].id + 1 : 1;
     newNote.title = inputTitle.value;
     newNote.text = inputTxt.value;
     newNote.color = bgColor;
     newNote.isDeleted = false;
     list.push(newNote);
     localStorage.setItem("noteList", JSON.stringify(list));
-    loadNotes(list, false);
+    loadNotes(list);
   }
 }
 
@@ -102,38 +106,57 @@ function loadNotes(list) {
         newNoteDiv.classList.add(colorItem);
       });
     }
+    const noteDeleteBtnElm = $.createElement("I");
+    noteDeleteBtnElm.classList.add(
+      "fa-solid",
+      "fa-trash",
+      "note-delete-btn",
+      "hidden!"
+    );
+    noteDeleteBtnElm.id = `trash-note-btn-${note.id}`;
     const newNoteTitleElm = $.createElement("H3");
     newNoteTitleElm.classList.add("note-title");
     const newNoteTxtElm = $.createElement("P");
     newNoteTxtElm.classList.add("note-text");
     newNoteTitleElm.innerText = note.title;
     newNoteTxtElm.innerText = note.text;
-    newNoteDiv.append(newNoteTitleElm, newNoteTxtElm);
+    newNoteDiv.append(newNoteTitleElm, newNoteTxtElm, noteDeleteBtnElm);
     inputTitle.value = "";
     inputTxt.value = "";
     noteListElm.insertBefore(newNoteDiv, noteListElm.firstChild);
+    notes = $.querySelectorAll(".note");
+    deleteBtns = $.querySelectorAll(".note-delete-btn");
+    openNote();
+    deleteNote();
   });
 }
 window.addEventListener("load", () => {
   let noteList = [];
   noteList = JSON.parse(localStorage.getItem("noteList")) || [];
   loadNotes(noteList);
+  notes = $.querySelectorAll(".note");
+  deleteBtns = $.querySelectorAll(".note-delete-btn");
+  openNote();
+  deleteNote();
+});
 
-  // open note
-  const notes = $.querySelectorAll(".note");
+// open note
+function openNote() {
   notes.forEach((note) => {
     note.addEventListener("click", (e) => {
       note.classList.remove("close-note");
       note.classList.add("open-note");
+      note.querySelector(".note-delete-btn").classList.remove("hidden!");
     });
     $.addEventListener("click", (e) => {
       if (!note.contains(e.target)) {
         note.classList.remove("open-note");
         note.classList.add("close-note");
+        note.querySelector(".note-delete-btn").classList.add("hidden!");
       }
     });
   });
-});
+}
 
 // search function
 const searchInput = $.querySelector("#search");
@@ -183,3 +206,24 @@ menuItems.forEach((item) => {
     }
   });
 });
+
+// delete note
+function deleteNote() {
+  const newDeletedState = { isDeleted: true };
+  deleteBtns = $.querySelectorAll(".note-delete-btn");
+  deleteBtns.forEach((item) => {
+    item.addEventListener("click", () => {
+      const noteId = Number(item.id.split("-")[3]);
+      let noteList = [];
+      noteList = JSON.parse(localStorage.getItem("noteList")) || [];
+      const updatedList = noteList.map((item) => {
+        if (noteId === item.id) {
+          return { ...item, ...newDeletedState };
+        }
+        return item;
+      });
+      localStorage.setItem("noteList", JSON.stringify(updatedList));
+      loadNotes(updatedList);
+    });
+  });
+}
