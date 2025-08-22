@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Note</title>
+    <title></title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link
       rel="stylesheet"
@@ -21,9 +21,7 @@
       <!-- header left -->
       <div class="flex items-center flex-1 gap-2">
         <i class="fa-solid fa-bars md:hidden!" id="menu-btn"></i>
-        <span class="text-lg font-semibold"
-          >Note <i class="fa-solid fa-heart text-sm hidden! sm:inline!"></i
-        ></span>
+        <span class="text-lg font-semibold">Notee </span>
       </div>
 
       <!-- header middle -->
@@ -58,27 +56,30 @@
       class="w-13 md:w-52 bg-white dark:bg-gray-900 absolute overflow-hidden h-[calc(100dvh-54px)] shadow-[1px_0px_2px_rgba(0,0,0,0.1)] py-2"
       id="menu"
     >
-      <ul class="flex flex-col gap-1 px-4">
-        <li class="menu-item">
-          <div class="w-10">
+      <ul class="flex flex-col gap-1 px-2">
+        <li class="menu-item active" id="notes">
+          <div class="min-w-10">
             <i class="fa-solid fa-note-sticky"></i>
           </div>
           <span>Notes</span>
         </li>
-        <li class="menu-item" id="dark-toggle">
-          <div class="w-10">
-            <i class="fa-solid fa-moon"></i>
-          </div>
-          <span>Theme</span>
-        </li>
-        <li class="menu-item">
-          <div class="w-10">
+        <li class="menu-item" id="trash">
+          <div class="min-w-10">
             <i class="fa-solid fa-trash"></i>
           </div>
           <span>Trash</span>
         </li>
+        <li class="menu-item" id="dark-toggle">
+          <div class="min-w-10">
+            <i class="fa-solid fa-sun" id="dark-toggle-icon"></i>
+          </div>
+          <span>Theme</span>
+        </li>
       </ul>
-      <p id="copy" class="absolute w-60 hidden md:block bottom-4 left-4 text-sm">
+      <p
+        id="copy"
+        class="absolute w-60 hidden md:block bottom-4 left-4 text-sm"
+      >
         &copy; Thisismammad Davari
       </p>
     </menu>
@@ -110,7 +111,9 @@
             placeholder="take a note..."
             class="focus:outline-none flex flex-wrap w-full field-sizing-content resize-none"
           ></textarea>
-          <div class="flex flex-col sm:flex-row items-center gap-3 justify-between mt-4 max-w-52 mx-auto">
+          <div
+            class="flex flex-col sm:flex-row items-center gap-3 justify-between mt-4 max-w-52 mx-auto"
+          >
             <div class="flex gap-2">
               <span class="color-plate"></span>
               <span class="color-plate bg-rose-400 dark:bg-rose-800"></span>

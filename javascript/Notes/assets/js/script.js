@@ -1,9 +1,12 @@
 const $ = document;
+let isDeleted = false;
 // dark mode toggle
 const html = $.documentElement;
 const darkToggle = $.querySelector("#dark-toggle");
+const darkToggleIcon = $.querySelector("#dark-toggle-icon");
 darkToggle.addEventListener("click", () => {
   html.classList.toggle("dark");
+  darkToggleIcon.classList.toggle("fa-moon");
 });
 
 // menu toggle
@@ -61,42 +64,44 @@ addNoteBtn.addEventListener("click", addNewNote);
 
 function addNewNote(list) {
   if (inputTxt.value || inputTitle.value) {
-    let noteList = [];
-    noteList = JSON.parse(localStorage.getItem("noteList")) || [];
+    list = JSON.parse(localStorage.getItem("noteList")) || [];
     const newNote = {};
     newNote.title = inputTitle.value;
     newNote.text = inputTxt.value;
     newNote.color = bgColor;
     newNote.isDeleted = false;
-    noteList.push(newNote);
-    localStorage.setItem("noteList", JSON.stringify(noteList));
-    loadNotes(noteList);
+    list.push(newNote);
+    localStorage.setItem("noteList", JSON.stringify(list));
+    loadNotes(list, false);
   }
 }
 
 function loadNotes(list) {
   noteListElm.innerHTML = "";
+  if (isDeleted) {
+    list = list.filter((item) => item.isDeleted);
+  } else {
+    list = list.filter((item) => !item.isDeleted);
+  }
   list.forEach((note) => {
-    if (!note.isDeleted) {
-      const newNoteDiv = $.createElement("DIV");
-      newNoteDiv.classList.add("note");
+    const newNoteDiv = $.createElement("DIV");
+    newNoteDiv.classList.add("note");
 
-      if (note.color) {
-        note.color.forEach((colorItem) => {
-          newNoteDiv.classList.add(colorItem);
-        });
-      }
-      const newNoteTitleElm = $.createElement("H3");
-      newNoteTitleElm.classList.add("note-title");
-      const newNoteTxtElm = $.createElement("P");
-      newNoteTxtElm.classList.add("note-text");
-      newNoteTitleElm.innerText = note.title;
-      newNoteTxtElm.innerText = note.text;
-      newNoteDiv.append(newNoteTitleElm, newNoteTxtElm);
-      inputTitle.value = "";
-      inputTxt.value = "";
-      noteListElm.insertBefore(newNoteDiv, noteListElm.firstChild);
+    if (note.color) {
+      note.color.forEach((colorItem) => {
+        newNoteDiv.classList.add(colorItem);
+      });
     }
+    const newNoteTitleElm = $.createElement("H3");
+    newNoteTitleElm.classList.add("note-title");
+    const newNoteTxtElm = $.createElement("P");
+    newNoteTxtElm.classList.add("note-text");
+    newNoteTitleElm.innerText = note.title;
+    newNoteTxtElm.innerText = note.text;
+    newNoteDiv.append(newNoteTitleElm, newNoteTxtElm);
+    inputTitle.value = "";
+    inputTxt.value = "";
+    noteListElm.insertBefore(newNoteDiv, noteListElm.firstChild);
   });
 }
 window.addEventListener("load", () => {
@@ -118,11 +123,38 @@ function search(input) {
       if (
         note.title.toUpperCase().includes(searchInputValue.toUpperCase()) ||
         note.text.toUpperCase().includes(searchInputValue.toUpperCase())
-      )
+      ) {
         return note;
+      }
     });
     loadNotes(filteredList);
   } else {
     loadNotes(noteList);
   }
 }
+
+// change menu
+const menuItems = $.querySelectorAll(".menu-item");
+menuItems.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    menuItems.forEach((item) => item.classList.remove("active"));
+    if (
+      item === event.target.parentElement.parentElement ||
+      item === event.target.parentElement ||
+      item === event.target
+    ) {
+      let noteList = [];
+      noteList = JSON.parse(localStorage.getItem("noteList")) || [];
+      if (item.id !== "dark-toggle") {
+        item.classList.add("active");
+      }
+      if (item.id === "notes") {
+          isDeleted = false
+        loadNotes(noteList);
+      } else if (item.id === "trash") {
+        isDeleted = true;
+        loadNotes(noteList);
+      }
+    }
+  });
+});
