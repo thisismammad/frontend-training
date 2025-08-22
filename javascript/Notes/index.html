@@ -88,7 +88,7 @@
         class="max-w-2xl mx-auto flex flex-col items-center p-4 rounded-md shadow-md shadow-gray-300 dark:shadow-gray-800"
       >
         <!-- add note section -->
-        <section class="overflow-hidden w-full h-6">
+        <section class="overflow-hidden w-full">
           <textarea
             type="text"
             name="title"
@@ -105,15 +105,15 @@
           ></textarea>
           <div class="flex items-center justify-between mt-4 max-w-52 mx-auto">
             <div class="flex gap-2">
-              <span class="color-plate bg-red-500"></span>
-              <span class="color-plate bg-blue-500"></span>
-              <span class="color-plate bg-yellow-500"></span>
-              <span class="color-plate bg-green-500"></span>
+              <span class="color-plate bg-rose-400 dark:bg-rose-800"></span>
+              <span class="color-plate bg-cyan-400 dark:bg-syan-800"></span>
+              <span class="color-plate bg-yellow-400 dark:bg-yellow-800"></span>
+              <span class="color-plate bg-emerald-400 dark:bg-emerald-800"></span>
             </div>
             <input
               type="button"
               value="Add note"
-              class="py-1 px-3 rounded-2xl bg-teal-500"
+              class="py-1 px-3 rounded-2xl text-white hover:bg-yellow-600 bg-yellow-500 dark:bg-yellow-700"
             />
           </div>
         </section>
@@ -124,13 +124,13 @@
 
       <!-- notes section -->
       <section class="mt-8">
-        <p class="font-medium text-gray-300">Notes</p>
+        <p class="font-medium dark:text-gray-300">Notes</p>
         <section
           class="mt-4 flex flex-wrap gap-2 mb-4"
         >
           <!-- column 1 -->
           <div class="note-column">
-            <div class="note bg-red-400">
+            <div class="note bg-rose-400 dark:bg-rose-900">
               <h3 class="note-title">Title</h3>
               <p class="note-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
@@ -138,14 +138,14 @@
                 assumenda. At cumque facilis
               </p>
             </div>
-            <div class="note bg-blue-400">
+            <div class="note bg-cyan-400 dark:bg-cyan-900">
               <h3 class="note-title">Title</h3>
               <p class="note-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
                 consequuntur facilis 
               </p>
             </div>
-            <div class="note bg-blue-400">
+            <div class="note bg-cyan-400 dark:bg-cyan-900">
               <h3 class="note-title">Title</h3>
               <p class="note-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
@@ -156,11 +156,11 @@
           </div>
           <!-- column 2 -->
           <div class="note-column">
-            <div class="note bg-blue-400">
+            <div class="note bg-cyan-400 dark:bg-emerald-900">
               <h3 class="note-title">Title</h3>
               <p class="note-text">Lorem ipsum</p>
             </div>
-            <div class="note bg-green-400">
+            <div class="note bg-emerald-400 dark:bg-emerald-900">
               <h3 class="note-title">Title</h3>
               <p class="note-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
@@ -170,7 +170,7 @@
           </div>
           <!-- column 3 -->
           <div class="note-column">
-            <div class="note bg-green-400">
+            <div class="note bg-emerald-400 dark:bg-emerald-900">
               <h3 class="note-title">Title</h3>
               <p class="note-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
