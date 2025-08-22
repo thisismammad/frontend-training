@@ -195,6 +195,8 @@ menuItems.forEach((item) => {
       noteList = JSON.parse(localStorage.getItem("noteList")) || [];
       if (item.id !== "dark-toggle") {
         item.classList.add("active");
+        menu.classList.add("w-52!");
+        copy.classList.remove("hidden");
       }
       if (item.id === "notes") {
         isDeleted = false;
