@@ -203,8 +203,8 @@
   .relative {
     position: relative;
   }
-  .top-14 {
-    top: calc(var(--spacing) * 14);
+  .top-13 {
+    top: calc(var(--spacing) * 13);
   }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
@@ -637,6 +637,14 @@
   .note-delete-btn {
     position: absolute;
     right: calc(var(--spacing) * 2);
+    color: var(--color-gray-950);
+    &:where(.dark, .dark *) {
+      color: var(--color-gray-50);
+    }
+  }
+  .note-restore-btn {
+    position: absolute;
+    right: calc(var(--spacing) * 8);
     color: var(--color-gray-950);
     &:where(.dark, .dark *) {
       color: var(--color-gray-50);

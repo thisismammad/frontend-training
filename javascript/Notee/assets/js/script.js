@@ -113,6 +113,7 @@ function loadNotes(list) {
       "note-delete-btn",
       "hidden!"
     );
+
     noteDeleteBtnElm.id = `trash-note-btn-${note.id}`;
     const newNoteTitleElm = $.createElement("H3");
     newNoteTitleElm.classList.add("note-title");
@@ -121,6 +122,17 @@ function loadNotes(list) {
     newNoteTitleElm.innerText = note.title;
     newNoteTxtElm.innerText = note.text;
     newNoteDiv.append(newNoteTitleElm, newNoteTxtElm, noteDeleteBtnElm);
+    if (note.isDeleted) {
+      const noteRestoreBtnElm = $.createElement("I");
+      noteRestoreBtnElm.classList.add(
+        "fa-solid",
+        "fa-clock-rotate-left",
+        "note-restore-btn",
+        "hidden!"
+      );
+      noteRestoreBtnElm.id = `trash-note-btn-${note.id}`;
+      newNoteDiv.appendChild(noteRestoreBtnElm);
+    }
     inputTitle.value = "";
     inputTxt.value = "";
     noteListElm.insertBefore(newNoteDiv, noteListElm.firstChild);
@@ -128,6 +140,7 @@ function loadNotes(list) {
     deleteBtns = $.querySelectorAll(".note-delete-btn");
     openNote();
     deleteNote();
+    restoreNote();
   });
 }
 window.addEventListener("load", () => {
@@ -138,6 +151,7 @@ window.addEventListener("load", () => {
   deleteBtns = $.querySelectorAll(".note-delete-btn");
   openNote();
   deleteNote();
+  restoreNote();
 });
 
 // open note
@@ -147,12 +161,18 @@ function openNote() {
       note.classList.remove("close-note");
       note.classList.add("open-note");
       note.querySelector(".note-delete-btn").classList.remove("hidden!");
+      note.querySelector(".note-restore-btn")
+        ? note.querySelector(".note-restore-btn").classList.remove("hidden!")
+        : null;
     });
     $.addEventListener("click", (e) => {
       if (!note.contains(e.target)) {
         note.classList.remove("open-note");
         note.classList.add("close-note");
         note.querySelector(".note-delete-btn").classList.add("hidden!");
+        note.querySelector(".note-restore-btn")
+          ? note.querySelector(".note-restore-btn").classList.add("hidden!")
+          : null;
       }
     });
   });
@@ -218,12 +238,41 @@ function deleteNote() {
       const noteId = Number(item.id.split("-")[3]);
       let noteList = [];
       noteList = JSON.parse(localStorage.getItem("noteList")) || [];
-      const updatedList = noteList.map((item) => {
+      let updatedList;
+      const found = noteList.find((item) => item.id === noteId);
+      if (found && found.isDeleted) {
+        updatedList = noteList.filter((item) => item.id !== noteId);
+      } else {
+        updatedList = noteList.map((item) => {
+          if (noteId === item.id) {
+            return { ...item, ...newDeletedState };
+          }
+          return item;
+        });
+      }
+      localStorage.setItem("noteList", JSON.stringify(updatedList));
+      loadNotes(updatedList);
+    });
+  });
+}
+
+// restore note
+function restoreNote() {
+  const newDeletedState = { isDeleted: false };
+  restoreBtns = $.querySelectorAll(".note-restore-btn");
+  restoreBtns.forEach((item) => {
+    item.addEventListener("click", () => {
+      const noteId = Number(item.id.split("-")[3]);
+      let noteList = [];
+      noteList = JSON.parse(localStorage.getItem("noteList")) || [];
+      let updatedList;
+      updatedList = noteList.map((item) => {
         if (noteId === item.id) {
           return { ...item, ...newDeletedState };
         }
         return item;
       });
+
       localStorage.setItem("noteList", JSON.stringify(updatedList));
       loadNotes(updatedList);
     });
