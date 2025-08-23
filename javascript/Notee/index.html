@@ -13,7 +13,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="max-w-5xl min-h-dvh mx-auto relative border-gray-200 dark:bg-gray-900">
+  <body class="max-w-5xl min-h-dvh mx-auto relative border-gray-200 select-none dark:bg-gray-900">
     <!-- header section-->
     <header
       class="flex items-center gap-2 px-4 py-2 h-13 border-b border-gray-200 dark:border-gray-700"
@@ -53,7 +53,7 @@
     <!--end header section-->
     <!-- side menu -->
     <menu
-      class="w-13 md:w-52 transition-all duration-500 bg-white dark:bg-gray-900 absolute overflow-hidden z-50 bottom-0 top-13 shadow-[1px_0px_2px_rgba(0,0,0,0.1)] py-2"
+      class="w-13 group hover:w-52 md:w-52 transition-all duration-500 bg-white dark:bg-gray-900 absolute overflow-hidden z-50 bottom-0 top-13 shadow-[1px_0px_2px_rgba(0,0,0,0.1)] py-2"
       id="menu"
     >
       <ul class="flex flex-col gap-1 px-2">
@@ -78,7 +78,7 @@
       </ul>
       <p
         id="copy"
-        class="absolute w-60 hidden md:block bottom-4 left-4 text-sm"
+        class="absolute w-60 hidden group-hover:block md:block bottom-4 left-4 text-sm"
       >
         &copy; Thisismammad
       </p>
@@ -136,7 +136,7 @@
 
       <!-- note list section -->
       <section class="mt-8">
-        <p class="font-medium dark:text-gray-300">Notes:</p>
+        <p class="font-medium dark:text-gray-300" id="notes-title">Notes:</p>
         <section
           id="note-list"
           class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-4"
