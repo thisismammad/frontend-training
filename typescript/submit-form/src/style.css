@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer base {
+  input[type="text"] {
+    @apply px-4 py-4 rounded-md bg-slate-700 text-slate-300 outline-none
+  }
+}
