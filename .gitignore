@@ -1,5 +1,43 @@
 .vscode/
-package.json
-package-lock.json
 node_modules/
 input.css
+
+# Node modules
+/node_modules
+
+# Build artifacts
+/dist
+/build
+/out
+
+# Vite specific
+.vite/
+*.local # for .env.*.local files
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+
+# Dependency lock files (optional, if you want to ignore them)
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Coverage reports
+/coverage
