@@ -1,11 +1,33 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+@font-face{
+	font-family: Roboto;
+	src: url('/fonts/Roboto-Medium.ttf');
+}
+@theme {
+	--color-primary-dark: #1e272e;
+	--color-primary-light: #f1f1f1;
+	--font-roboto:"Roboto", sans-serif
+}
+@layer base {
+	:root {
+		color-scheme: light;
+		--background-color: #ffffff;
+	}
+	[data-theme='dark'] {
+		color-scheme: dark;
+		--background-color: #000000;
+	}
+	html {
+		background-color: var(--background-color);
+	}
+}
 @layer components {
 	.stack {
-	
 		@apply grid [grid-template-areas:'stack'];
 	}
 	.stack > * {
-		@apply [grid-area:stack]
+		@apply [grid-area:stack];
 	}
 }
