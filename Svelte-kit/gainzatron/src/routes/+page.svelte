@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Anchor from '$lib/components/Anchor.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import Hero from './Hero.svelte';
 </script>
 
 <Hero />
-<Anchor href="/contact">Contact</Anchor>
-<Anchor href="/personal">Generate a programme</Anchor>
-<Anchor href="/discord">Join the community</Anchor>
+<Button href="/contact">Contact</Button>
+<Button href="/personal">Generate a programme</Button>
+<Button href="/discord">Join the community</Button>
