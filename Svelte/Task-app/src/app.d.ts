@@ -9,5 +9,12 @@ declare global {
 		// interface Platform {}
 	}
 }
+type Task={
+	id:string,
+	text:string,
+	isDone:boolean
+}
 
-export {};
+type Filter = "all" | "todo" | "done"
+
+export {Task, Filter};

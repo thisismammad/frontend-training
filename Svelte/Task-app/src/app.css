@@ -1,38 +1,46 @@
 @import 'tailwindcss';
 
+@theme {
+	--breakpoint-xs: 25rem;
+}
 @layer base {
 	html {
 		@apply bg-slate-950 text-slate-200;
 	}
 	body {
-		@apply mx-auto my-4 max-w-2xl text-center;
+		@apply mx-auto my-4 max-w-2xl px-1 text-center;
 	}
 	input {
-		@apply rounded-sm bg-slate-900 p-2 focus-within:outline-2 focus-within:outline-blue-900;
+		@apply rounded-sm bg-slate-900 p-4 focus-within:outline-2 focus-within:outline-blue-900;
 	}
-    label{
-        @apply flex gap-2
-    }
- 
+	label {
+		@apply flex items-center gap-2 p-2 text-justify;
+	}
+	input[type='checkbox'] {
+		@apply cursor-pointer;
+	}
 }
 
 @layer components {
 	.button {
-		@apply min-w-16 cursor-pointer rounded-sm bg-slate-500 p-2 hover:bg-slate-400;
+		@apply cursor-pointer rounded-sm bg-slate-500 p-2 hover:bg-slate-400;
 	}
 	.delete {
 		@apply bg-transparent text-slate-100 outline-1 outline-rose-900 hover:bg-rose-900;
 	}
 	.active {
-		@apply bg-slate-300 hover:bg-slate-200 text-slate-900;
+		@apply bg-slate-300 text-slate-900 hover:bg-slate-200;
 	}
 	.done {
-		@apply line-through;
+		@apply line-through opacity-70;
 	}
 	.list {
-		@apply flex flex-col gap-4 mt-4;
+		@apply mt-4 flex flex-col-reverse gap-4;
 	}
 	.list-item {
-		@apply flex! items-center justify-between rounded-sm bg-slate-800 px-3 py-2;
+		@apply flex! items-center justify-between gap-1 rounded-sm bg-slate-800 px-3 py-2;
+	}
+	.taps {
+		@apply min-w-16;
 	}
 }
