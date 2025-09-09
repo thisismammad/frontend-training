@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { openModal } from "$lib";
 </script>
 
 <header class="flex flex-col relative z-20">
@@ -11,7 +12,10 @@
       </h1>
     </a>
     <!-- svelte-ignore a11y_consider_explicit_label -->
-    <button class="md:hidden grid place-items-center">
+    <button
+      onclick={() => $openModal =true}
+      class="md:hidden grid place-items-center"
+    >
       <i class="fa-solid fa-bars"></i>
     </button>
     <nav class="hidden md:flex items-center gap-4 lg:gap-6">

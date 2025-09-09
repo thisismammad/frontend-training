@@ -16,4 +16,14 @@ type product = {
   imgUrl: string;
 };
 
-export {product};
+type review = {
+  name: string;
+  review: string;
+  features: string[];
+};
+type faq = {
+  question: string;
+  ans: string;
+};
+
+export { product, review, faq };

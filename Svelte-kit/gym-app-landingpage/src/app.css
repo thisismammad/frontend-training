@@ -36,9 +36,7 @@
     background-image: linear-gradient(to right, gray 1px, transparent 1px),
       linear-gradient(to bottom, gray 1px, transparent 1px);
   }
-  .poppins {
-    @apply font-poppins;
-  }
+
   .menuBtns {
     @apply duration-200 hover:text-indigo-400;
   }
@@ -48,8 +46,25 @@
   .specialBtnDark {
     @apply bg-[#646cff] text-white;
   }
-  .dropShadow{
-    filter: drop-shadow(-10.8923px 14.523px 35.0973px rgba(29,40,242,0.2));
+  .dropShadow {
+    filter: drop-shadow(-10.8923px 14.523px 35.0973px rgba(29, 40, 242, 0.2));
   }
-  
+  .reviewCardEven {
+    @apply hidden md:flex opacity-0 pointer-events-none max-h-[40px] overflow-hidden;
+  }
+  .reviewCardOdd {
+    @apply hidden md:flex opacity-0 pointer-events-none max-h-[40px] overflow-hidden;
+  }
+  .fadeIn {
+    animation: fadeIn 300ms ease-in forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
