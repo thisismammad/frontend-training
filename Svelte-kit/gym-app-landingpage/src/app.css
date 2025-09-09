@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+@layer base {
+  * {
+    @apply font-open-sans;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  .poppins {
+    font-family: inherit;
+    font-weight: inherit;
+  }
+
+  button {
+    @apply cursor-pointer hover:border-[#646cff] rounded-lg border border-solid border-transparent py-2.5 px-5 text-[1em] font-medium font-[inherit] bg-white transition-[border-color] duration-200;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}
+
+@layer components {
+  .bgGrid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, gray 1px, transparent 1px),
+      linear-gradient(to bottom, gray 1px, transparent 1px);
+  }
+  .poppins {
+    @apply font-poppins;
+  }
+  .menuBtns {
+    @apply duration-200 hover:text-indigo-400;
+  }
+  .specialBtn {
+    @apply border-[#646cff]  hover:border-blue-800;
+  }
+  .specialBtnDark {
+    @apply bg-[#646cff] text-white;
+  }
+  .dropShadow{
+    filter: drop-shadow(-10.8923px 14.523px 35.0973px rgba(29,40,242,0.2));
+  }
+  
+}
