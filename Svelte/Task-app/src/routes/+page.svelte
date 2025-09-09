@@ -28,7 +28,6 @@
 		}
 		return tasks;
 	});
-	$inspect(tasks);
 </script>
 
 {#snippet filterButtons(filter: Filter)}
@@ -52,11 +51,13 @@
 				Add some tasks
 			{/if}
 		</p>
-		<div class="flex justify-end gap-2">
-			{@render filterButtons('all')}
-			{@render filterButtons('todo')}
-			{@render filterButtons('done')}
-		</div>
+		{#if tasks.length}
+			<div class="flex justify-end gap-2">
+				{@render filterButtons('all')}
+				{@render filterButtons('todo')}
+				{@render filterButtons('done')}
+			</div>
+		{/if}
 	</div>
 	<TasksList tasks={filteredList} {deleteTask} />
 </main>
