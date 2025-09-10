@@ -1,2 +1,13 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/forms';
+@import "tailwindcss";
+
+@layer base {
+    *{
+        @apply duration-200
+    }
+  body {
+    @apply bg-slate-200;
+  }
+  input {
+    @apply outline-none border-none bg-slate-200 px-4 py-2 rounded-xl ;
+  }
+}
