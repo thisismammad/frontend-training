@@ -6,9 +6,10 @@
 
 <svelte:window bind:innerWidth />
 <section
-  class="bg-yellow-300 flex rounded-2xl flex-col justify-center items-center gap-4 p-4 h-full"
+  class="bg-yellow-300 flex rounded-2xl justify-center items-center gap-4 p-4 lg:p-8 h-full"
 >
-  <div class="w-1/2 max-w-52 aspect-square rounded-full overflow-hidden">
+ <div class="flex max-w-[400px] flex-col justify-center items-center gap-4 ">
+   <div class="w-1/2 max-w-52 aspect-square rounded-full overflow-hidden">
     <img {src} alt={src.split("/")[1]} />
   </div>
   <div class="flex flex-col gap-4 items-center">
@@ -26,4 +27,5 @@
       <i class="fa-solid text-2xl fa-angle-right"></i>
     {/if}
   </div>
+ </div>
 </section>

@@ -1,8 +1,14 @@
-<script>
+<script lang="ts">
   import Cover from "./Cover.svelte";
   let title = "Let's get you set up";
   let description =
     "It should only take a couple of minutes to pair with your match";
+
+  function redirect(href: string) {
+    if (typeof window !== "undefined") {
+      window.location.href = "/" + href;
+    }
+  }
 </script>
 
 <section
@@ -11,7 +17,9 @@
   <section class="flex-2 rounded-2xl">
     <Cover {title} {description} />
   </section>
-  <section class="flex-3 flex flex-col p-8 items-center justify-center">
+  <section
+    class="flex-3 md:px-16 flex flex-col p-8 items-center justify-center"
+  >
     <form class="flex flex-col gap-5 w-full">
       <div>
         <label class="flex items-center justify-between">
@@ -70,6 +78,7 @@
       </div>
       <div class="flex mt-8 items-center justify-center gap-14">
         <button
+          onclick={() => {redirect("login")}}
           class="outline outline-amber-300 w-24 h-11 cursor-pointer rounded-xl hover:bg-amber-100 flex items-center justify-center"
           >Cancel</button
         >

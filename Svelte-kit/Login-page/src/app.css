@@ -1,13 +1,29 @@
 @import "tailwindcss";
 
+@theme{
+  --font-roboto: "Roboto","sans-serif" 
+}
 @layer base {
     *{
         @apply duration-200
     }
   body {
-    @apply bg-slate-200;
+    @apply bg-slate-200 font-roboto;
   }
   input {
     @apply outline-none border-none bg-slate-200 px-4 py-2 rounded-xl ;
   }
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Bold") format("ttf");
+  font-weight: 700;
+  font-style: bold;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular") format("ttf");
+  font-weight: 400;
+  font-style: regular;
 }
