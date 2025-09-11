@@ -2,6 +2,7 @@
 
 @theme {
   --font-roboto: "Roboto", "sans-serif";
+  --font-vazir: "Vazir", "sans-serif";
 }
 @layer base {
   * {
@@ -25,13 +26,25 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url("/fonts/Roboto-Bold") format("ttf");
+  src: url("/fonts/Roboto-Bold.ttf") format("ttf");
   font-weight: 700;
   font-style: bold;
 }
 @font-face {
   font-family: "Roboto";
-  src: url("/fonts/Roboto-Regular") format("ttf");
+  src: url("/fonts/Roboto-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: regular;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: bold;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir.woff") format("woff");
   font-weight: 400;
   font-style: regular;
 }

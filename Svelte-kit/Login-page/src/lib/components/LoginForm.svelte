@@ -14,25 +14,35 @@
   let userList: User[];
   userList = $users;
   let password = $state("");
-  let error:string = $state("")
+  let error = $state("");
+  let errorKey = $state(0);
   function login(e: SubmitEvent) {
     e.preventDefault();
+    errorKey += 1;
+    error = "";
+    if ($username === "") {
+      error = "Enter your username";
+      return;
+    }
     let loginUser = userList.find((user) => user.username === $username);
     if (loginUser) {
       if (loginUser.password === password) {
         isLoggedIn.set(true);
         goto("/");
-      }else{
-        error = "Incorrect password!"
-        password = ''
+      } else {
+        error = "Incorrect password!";
+        password = "";
       }
-    }else{
-      error = "User not Found"
+    } else {
+      error = "User not Found";
     }
   }
 </script>
+
 {#if error}
+  {#key errorKey}
     <ErrorMessage isError={true} texts={[error]} />
+  {/key}
 {/if}
 <FormWrapper>
   <section class="flex-2 md:max-w-[350px] rounded-2xl">

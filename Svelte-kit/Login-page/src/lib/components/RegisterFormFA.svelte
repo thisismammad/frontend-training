@@ -10,9 +10,9 @@
   let errors: string[] = $state([]);
   let { addUser }: { addUser: (user: User) => void } = $props();
   let errKey = $state(0);
-  let title = "Let's get you set up";
+  let title = "بیاید آماده شیم!";
   let description =
-    "It should only take a couple of minutes to pair with your match";
+    "فقط چند دقیقه از وقت شما را میگیرد ";
   let formData: formDateType = $state({
     username: "",
     gender: "",
@@ -48,21 +48,21 @@
 {/if}
 
 <FormWrapper>
-  <section class="flex-2 rounded-2xl">
+  <section  class="flex-2 font-vazir rounded-2xl">
     <Cover {title} {description} />
   </section>
   <section
-    class="flex-3 md:px-16 flex flex-col p-8 items-center justify-center"
+    class="flex-3 font-vazir md:px-16 flex flex-col p-8 items-center justify-center"
   >
     <form onsubmit={submitForm} class="flex flex-col gap-5 w-full">
       <div>
         <label class="flex items-center justify-between">
-          Username
+          نام کاربری
           <input type="text" bind:value={formData.username} />
         </label>
       </div>
       <div class="flex justify-between">
-        Gender
+        جنسیت
         <div class="flex gap-16">
           <label
             class="cursor-pointer flex items-center relative justify-between"
@@ -75,9 +75,9 @@
               value="Male"
             />
             <i
-              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-mars absolute left-1 top-2"
+              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-mars absolute right-1 top-2"
             ></i>
-            Male
+            مرد
           </label>
           <label
             class="cursor-pointer flex items-center relative justify-between"
@@ -90,27 +90,27 @@
               value="Female"
             />
             <i
-              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-venus absolute left-1 top-2"
+              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-venus absolute right-1 top-2"
             ></i>
-            Female
+            زن
           </label>
         </div>
       </div>
       <div>
         <label class="flex items-center justify-between">
-          Password
+          رمز عبور
           <input type="password" bind:value={formData.password} />
         </label>
       </div>
       <div>
         <label class="flex items-center justify-between">
-          Confirm Password
+          تکرار رمز
           <input type="password" bind:value={formData.confirmPassword} />
         </label>
       </div>
       <div>
         <label class="flex items-center justify-between">
-          Email
+          ایمیل
           <input type="email" bind:value={formData.email} />
         </label>
       </div>
@@ -119,14 +119,14 @@
           class="outline outline-amber-300 w-24 h-11 cursor-pointer rounded-xl hover:bg-amber-100"
           ><a
             href="/login"
-            class="flex items-center justify-center w-full h-full">Cancel</a
+            class="flex items-center justify-center w-full h-full">صرف نظر</a
           ></button
         >
         <button
           type="submit"
           class="cursor-pointer w-24 h-11 bg-amber-300 rounded-xl hover:bg-amber-400 flex items-center justify-center"
         >
-          Save</button
+          ذخیره</button
         >
       </div>
     </form>

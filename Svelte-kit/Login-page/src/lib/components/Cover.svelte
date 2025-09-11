@@ -1,7 +1,10 @@
 <script lang="ts">
-  let src = $state("images/man.jpg");
+  import { lang } from "$lib/stores/lang";
+
+  let src = $state("/images/man.jpg");
   let innerWidth = $state(0);
   let { title, description }: { title: string; description: string } = $props();
+lang
 </script>
 
 <svelte:window bind:innerWidth />
@@ -24,7 +27,7 @@
     {#if innerWidth < 640}
       <i class="fa-solid text-2xl fa-angle-down"></i>
     {:else}
-      <i class="fa-solid text-2xl fa-angle-right"></i>
+      <i class="fa-solid text-2xl" class:fa-angle-left={$lang.toLowerCase() === "fa"}  class:fa-angle-right={$lang.toLowerCase() === "en"}></i>
     {/if}
   </div>
  </div>
