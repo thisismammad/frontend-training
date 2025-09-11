@@ -1,17 +1,25 @@
 @import "tailwindcss";
 
-@theme{
-  --font-roboto: "Roboto","sans-serif" 
+@theme {
+  --font-roboto: "Roboto", "sans-serif";
 }
 @layer base {
-    *{
-        @apply duration-200
-    }
+  * {
+    @apply duration-200;
+  }
   body {
-    @apply bg-slate-200 font-roboto;
+    @apply font-roboto relative;
   }
   input {
-    @apply outline-none border-none bg-slate-200 px-4 py-2 rounded-xl ;
+    @apply outline-none border-none bg-slate-200 px-4 py-2 rounded-xl;
+  }
+}
+
+@layer components {
+  .bgGrid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, oklch(82.8% 0.189 84.429) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(82.8% 0.189 84.429) 1px, transparent 1px);
   }
 }
 
