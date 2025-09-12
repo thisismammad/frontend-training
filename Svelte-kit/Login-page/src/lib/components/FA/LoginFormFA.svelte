@@ -51,7 +51,7 @@
   <section
     class="flex-3 w-full font-vazir max-w-[400px] mx-auto flex flex-col p-8 items-center justify-center"
   >
-    <form onsubmit={login} dir="ltr" class="flex flex-col gap-5 w-full">
+    <form onsubmit={login}  class="flex flex-col gap-5 w-full">
       <div>
         <label class="flex items-center justify-between">
           نام کاربری

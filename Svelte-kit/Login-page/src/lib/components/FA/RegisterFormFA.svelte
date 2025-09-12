@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { User } from "$lib/types/user";
-  import { formDateSchema, type formDateType } from "$lib/schemas/register";
+  import { fromZodError } from "zod-validation-error";
+  import { formDateSchema, type formDateType } from "$lib/schemas/registerFA";
   import Cover from "../Cover.svelte";
   import FormWrapper from "../FormWrapper.svelte";
   import { goto } from "$app/navigation";
@@ -24,12 +25,7 @@
     errKey += 1;
     const check = formDateSchema.safeParse(formData);
     if (!check.success) {
-      errors = [
-        "همه چی رو باید وارد کنی اذیت نکن",
-        "نام کاربری فقط حروف انگلیسی و عدد",
-        "رمز باید بیشتر از 6 کاراکتر باشه. برای امنیت خودت ارزش قائل شو",
-        "ایمیلتو هم درست بزن مارو * نکن",
-      ];
+      errors = fromZodError(check.error).message.split(";");
     } else {
       let user: User = {
         username: formData.username,
@@ -62,7 +58,7 @@
   <section
     class="flex-4 font-vazir md:px-16 flex flex-col p-8 items-center justify-center"
   >
-    <form onsubmit={submitForm} dir="ltr" class="flex flex-col gap-5 w-full">
+    <form onsubmit={submitForm}  class="flex flex-col gap-5 w-full">
       <div>
         <label class="flex items-center justify-between">
           نام کاربری
@@ -83,7 +79,7 @@
               value="Male"
             />
             <i
-              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-mars absolute left-1 top-2"
+              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-mars absolute right-1 top-2"
             ></i>
             مرد
           </label>
@@ -98,7 +94,7 @@
               value="Female"
             />
             <i
-              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-venus absolute left-1 top-2"
+              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-venus absolute right-1 top-2"
             ></i>
             زن
           </label>
