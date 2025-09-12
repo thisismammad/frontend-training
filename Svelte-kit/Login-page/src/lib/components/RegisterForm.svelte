@@ -7,6 +7,7 @@
   import { goto } from "$app/navigation";
   import { username } from "$lib/stores/user";
   import ErrorMessage from "./ErrorMessage.svelte";
+  import { gender } from "$lib/stores/gender";
   let errors: string[] = $state([]);
   let { addUser }: { addUser: (user: User) => void } = $props();
   let errKey = $state(0);
@@ -15,7 +16,7 @@
     "It should only take a couple of minutes to pair with your match";
   let formData: formDateType = $state({
     username: "",
-    gender: "",
+    gender: "Male",
     email: "",
     password: "",
     confirmPassword: "",
@@ -39,6 +40,9 @@
       errors = [];
     }
   }
+  $effect(() => {
+    gender.set(formData.gender);
+  });
 </script>
 
 {#if errors.length > 0}

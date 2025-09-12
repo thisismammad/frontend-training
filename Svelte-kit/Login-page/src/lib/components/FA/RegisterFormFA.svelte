@@ -1,21 +1,20 @@
 <script lang="ts">
-  import { fromZodError } from "zod-validation-error";
   import type { User } from "$lib/types/user";
   import { formDateSchema, type formDateType } from "$lib/schemas/register";
-  import Cover from "./Cover.svelte";
-  import FormWrapper from "./FormWrapper.svelte";
+  import Cover from "../Cover.svelte";
+  import FormWrapper from "../FormWrapper.svelte";
   import { goto } from "$app/navigation";
   import { username } from "$lib/stores/user";
-  import ErrorMessage from "./ErrorMessage.svelte";
+  import ErrorMessage from "../ErrorMessage.svelte";
+  import { gender } from "$lib/stores/gender";
   let errors: string[] = $state([]);
   let { addUser }: { addUser: (user: User) => void } = $props();
   let errKey = $state(0);
-  let title = "بیاید آماده شیم!";
-  let description =
-    "فقط چند دقیقه از وقت شما را میگیرد ";
+  let title = "خوب جایی اومدی برا ثبت نام";
+  let description = "زیاد وقتت رو نمی گیره. یکمی هم با ما بد بگذرون ";
   let formData: formDateType = $state({
     username: "",
-    gender: "",
+    gender: "Male",
     email: "",
     password: "",
     confirmPassword: "",
@@ -25,7 +24,12 @@
     errKey += 1;
     const check = formDateSchema.safeParse(formData);
     if (!check.success) {
-      errors = fromZodError(check.error).message.split(";");
+      errors = [
+        "همه چی رو باید وارد کنی اذیت نکن",
+        "نام کاربری فقط حروف انگلیسی و عدد",
+        "رمز باید بیشتر از 6 کاراکتر باشه. برای امنیت خودت ارزش قائل شو",
+        "ایمیلتو هم درست بزن مارو * نکن",
+      ];
     } else {
       let user: User = {
         username: formData.username,
@@ -33,12 +37,16 @@
         email: formData.email,
         password: formData.password,
       };
+
       addUser(user);
       username.set(user.username);
       goto("/login");
       errors = [];
     }
   }
+  $effect(() => {
+    gender.set(formData.gender);
+  });
 </script>
 
 {#if errors.length > 0}
@@ -48,13 +56,13 @@
 {/if}
 
 <FormWrapper>
-  <section  class="flex-2 font-vazir rounded-2xl">
+  <section class="flex-3 font-vazir rounded-2xl">
     <Cover {title} {description} />
   </section>
   <section
-    class="flex-3 font-vazir md:px-16 flex flex-col p-8 items-center justify-center"
+    class="flex-4 font-vazir md:px-16 flex flex-col p-8 items-center justify-center"
   >
-    <form onsubmit={submitForm} class="flex flex-col gap-5 w-full">
+    <form onsubmit={submitForm} dir="ltr" class="flex flex-col gap-5 w-full">
       <div>
         <label class="flex items-center justify-between">
           نام کاربری
@@ -75,7 +83,7 @@
               value="Male"
             />
             <i
-              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-mars absolute right-1 top-2"
+              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-mars absolute left-1 top-2"
             ></i>
             مرد
           </label>
@@ -90,7 +98,7 @@
               value="Female"
             />
             <i
-              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-venus absolute right-1 top-2"
+              class="fa-solid text-xl text-amber-400 opacity-30 peer-checked:opacity-100 fa-venus absolute left-1 top-2"
             ></i>
             زن
           </label>

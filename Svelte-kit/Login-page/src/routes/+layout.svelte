@@ -1,54 +1,55 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
   import "../app.css";
-  import { page } from "$app/state";
-  import { goto } from "$app/navigation";
   import { lang } from "$lib/stores/lang";
-  import { afterNavigate } from "$app/navigation";
+  import { changeLang } from "$lib";
 
-  let getLang: string = $state("");
-  afterNavigate(({ to, from }) => {
-    if (to?.url.pathname) {
-      getLang = to?.url.pathname;
-    }
-  });
-  let pageLang = $derived.by(() => {
-    let parts;
-    parts = getLang.split("/");
-    return parts[parts.length - 1];
-  });
+  // let getLang: string = $state("");
+  // afterNavigate(({ to, from }) => {
+  //   if (to?.url.pathname) {
+  //     getLang = to?.url.pathname;
+  //   }
+  // });
+  // let pageLang = $derived.by(() => {
+  //   let parts;
+  //   parts = getLang.split("/");
+  //   return parts[parts.length - 1];
+  // });
 
-  $effect(() => {
-    if (pageLang === "fa" || pageLang === "en") {
-      lang.set(pageLang.toUpperCase());
-    } else {
-      lang.set("EN");
-    }
+  // $effect(() => {
+  //   if (pageLang === "fa" || pageLang === "en") {
+  //     lang.set(pageLang.toUpperCase());
+  //   } else {
+  //     lang.set("EN");
+  //   }
 
-    document.documentElement.lang = pageLang;
-    document.documentElement.dir = pageLang === "fa" ? "rtl" : "ltr";
-  });
-
+  //   document.documentElement.lang = pageLang;
+  //   document.documentElement.dir = pageLang === "fa" ? "rtl" : "ltr";
+  // });
+  $lang = $lang === "" ? "EN" : "FA";
   let { children }: { children: Snippet } = $props();
   function toggleLang() {
     lang.set($lang === "FA" ? "EN" : "FA");
-    const pathName = page.url.pathname;
-    const parts = pathName.split("/");
-    let pageLang = parts[parts.length - 1];
-    let newPath;
-    if (pageLang === "fa" || pageLang === "en") {
-      parts[parts.length - 1] = $lang.toLowerCase();
-      newPath = parts.join("/");
-    } else {
-      newPath = pathName + "/" + $lang.toLowerCase();
-    }
+    changeLang($lang.toLowerCase());
+    // const pathName = page.url.pathname;
+    // const parts = pathName.split("/");
+    // let pageLang = parts[parts.length - 1];
+    // let newPath;
+    // if (pageLang === "fa" || pageLang === "en") {
+    //   parts[parts.length - 1] = $lang.toLowerCase();
+    //   newPath = parts.join("/");
+    // } else {
+    //   newPath = pathName + "/" + $lang.toLowerCase();
+    // }
 
-    goto(newPath);
+    // goto(newPath);
   }
 </script>
 
-<header class="relative">
-  <button onclick={toggleLang} class="absolute cursor-pointer p-2 top-4 right-4"
+<header class="relative z-30">
+  <button
+    onclick={toggleLang}
+    class="absolute hover:text-amber-400 cursor-pointer p-2 top-4 right-4"
     >{$lang}</button
   >
 </header>

@@ -12,7 +12,7 @@
     @apply font-roboto relative;
   }
   input {
-    @apply outline-none border-none bg-slate-200 px-4 py-2 rounded-xl;
+    @apply  outline-none border-none bg-slate-200 px-4 py-2 rounded-xl;
   }
 }
 
