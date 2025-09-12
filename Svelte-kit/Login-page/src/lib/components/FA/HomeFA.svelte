@@ -15,5 +15,5 @@
   >
     خروج</button
   >
-  <h1 class="text-6xl">خوش اومدی صفا آوردی &hearts;</h1>
+  <h1 class="text-6xl text-center leading-20">خوش اومدی صفا آوردی &hearts;</h1>
 </section>

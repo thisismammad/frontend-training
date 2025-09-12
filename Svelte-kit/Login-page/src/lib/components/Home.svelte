@@ -13,5 +13,5 @@
   >
     LogOut</button
   >
-  <h1 class="text-6xl">Welcome Back</h1>
+  <h1 class="text-6xl text-center">Welcome Back</h1>
 </section>
